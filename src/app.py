@@ -10,9 +10,9 @@ def index():
 
 @app.route('/flag')
 def flag():
-	flag = ''
-	with open('/flag', 'r') as f:
-		flag = f.read()
+    flag = ''
+    with open('/flag', 'r') as f:
+        flag = f.read()
     return flag
 
 
