@@ -21,8 +21,6 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 WORKDIR /app
 
-CMD ["docker-entrypoint"]
-
 EXPOSE 80
 
-
+CMD ["docker-entrypoint"]

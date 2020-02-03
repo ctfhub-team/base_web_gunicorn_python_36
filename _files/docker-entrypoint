@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 if [ -f /flag.sh ];then
     source /flag.sh
@@ -8,31 +8,6 @@ if [ -f /app/requirements.txt ];then
     pip install /app/requirements.txt && rm -f /app/requirements.txt
 fi
 
-
-# settings=`find ./ -name settings.py  -print 2>/dev/null`
-# django=`grep "Django settings for core project." $settings`
-# flask=`grep -r "Flask" *`
-
 echo "Running..."
 
-# The other example: tornado, python socket , eq...
-if [ -n "$other" ];then
-    bash /server.sh
-fi
-
-# # Is Django
-# if [ -n "$django" ];then
-#     folder=${settings:2}
-#     folder=${folder%%/settings.py}
-#     gunicorn --chdir="/app" -w 2 -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - "$folder".wsgi:application
-# fi
-
-
-# # Is Flask
-# if [ -n "$flask" ];then
-#     gunicorn --chdir="/app" -w 2 -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - app:app
-# fi
-
 gunicorn --chdir="/app" -w 2 -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - $(MODULE_NAME):$(VARIABLE_NAME)
-
-
