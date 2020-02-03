@@ -1,0 +1,11 @@
+version: "2"
+services:
+  web:
+    build: .
+    image: ctfhub/base_web_gunicron_python_36
+    ports:
+      - "8085:80"
+    environment:
+      - FLAG=ctfhub{gunicron_web}
+      - MODULE_NAME=app
+      - VARIABLE_NAME=app

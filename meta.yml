@@ -1,0 +1,7 @@
+name: base_web_gunicron_python_36
+title: 基础镜像 WEB Gunicron python 3.6
+desc: 基础镜像 WEB Gunicron python 3.6
+tags:
+  - web
+  - python
+  - gunicron
