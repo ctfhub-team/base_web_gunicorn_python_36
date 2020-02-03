@@ -5,7 +5,7 @@ if [ -f /flag.sh ];then
 fi
 
 if [ -f /app/requirements.txt ];then
-    pip install /app/requirements.txt && rm -f /app/requirements.txt
+    pip install -r /app/requirements.txt && rm -f /app/requirements.txt
 fi
 
 echo "Running..."

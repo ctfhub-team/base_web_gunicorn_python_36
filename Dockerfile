@@ -3,7 +3,7 @@ FROM python:3.6-alpine
 LABEL Organization="CTFHUB" Author="Virink <virink@outlook.com>"
 
 COPY _files /tmp/
-COPY src /app   
+COPY src /app
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories; \
     apk update; \
