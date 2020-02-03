@@ -10,4 +10,4 @@ fi
 
 echo "Running..."
 
-gunicorn --chdir="/app" -w 2 -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - $(MODULE_NAME):$(VARIABLE_NAME)
+gunicorn --chdir="/app" -w 2 -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - $MODULE_NAME:$VARIABLE_NAME
