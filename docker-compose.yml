@@ -9,3 +9,4 @@ services:
       - FLAG=ctfhub{gunicron_web}
       - MODULE_NAME=app
       - VARIABLE_NAME=app
+      - WORK_CLASS=gevent

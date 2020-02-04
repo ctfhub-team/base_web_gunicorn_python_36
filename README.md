@@ -12,6 +12,7 @@
 - gunicorn
   - MODULE_NAME=app
   - VARIABLE_NAME=app
+  - WORK_CLASS=gevent
 
 You should rewrite flag.sh when you use this image.
 The `$FLAG` is not mandatory, but i hope you use it!
@@ -22,16 +23,16 @@ Eg:
 
 ```bash
 # Flask
-MODULE_NAME=app VARIABLE_NAME=app gunicorn --chdir="/app" -w 2 -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - $(MODULE_NAME):$(VARIABLE_NAME)
+MODULE_NAME=app VARIABLE_NAME=app WORK_CLASS=gevent gunicorn --chdir="/app" -w 2 -k $WORK_CLASS -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - $(MODULE_NAME):$(VARIABLE_NAME)
 # as
-gunicorn --chdir="/app" -w 2 -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - app:app
+gunicorn --chdir="/app" -w 2 -k gevent -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - app:app
 
 ---
 
 # Django
-MODULE_NAME='test.wsgi' VARIABLE_NAME='application' gunicorn --chdir="/app" -w 2 -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - $(MODULE_NAME):$(VARIABLE_NAME)
+MODULE_NAME='test.wsgi' VARIABLE_NAME='application' WORK_CLASS=gevent gunicorn --chdir="/app" -w 2 -k $WORK_CLASS -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - $(MODULE_NAME):$(VARIABLE_NAME)
 # as
-gunicorn --chdir="/app" -w 2 -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - test.wsgi:application
+gunicorn --chdir="/app" -w 2 -k gevent -b 0.0.0.0:80 -u nobody -g nogroup --access-logfile - test.wsgi:application
 
 ```
 
