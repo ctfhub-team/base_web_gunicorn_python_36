@@ -13,6 +13,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     # _files
     mv /tmp/flag.sh /flag.sh; \
     mv /tmp/pip.conf /etc/pip.conf; \
+    mkdir -p /app; \
     # pip && build-deps
     apk add --no-cache --virtual .build-deps gcc libc-dev linux-headers; \
     python -m pip install -U pip; \
