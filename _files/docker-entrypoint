@@ -4,6 +4,7 @@ if [ -f /flag.sh ];then
     source /flag.sh
 fi
 
+# Just For Old Version, should be do this in Dockerfile
 if [ -f /app/requirements.txt ];then
     pip install -r /app/requirements.txt && rm -f /app/requirements.txt
 fi

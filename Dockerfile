@@ -3,8 +3,9 @@ FROM python:3.6-alpine
 LABEL Organization="CTFHUB" Author="Virink <virink@outlook.com>"
 
 COPY _files /tmp/
-COPY src /app
+# COPY src /app
 
+# Default Env
 ENV WORK_CLASS=gevent MODULE_NAME=app VARIABLE_NAME=app
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories; \
