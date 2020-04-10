@@ -12,7 +12,7 @@
 
 ### ENV
 
-- FLAG=ctfhub{gunicron_web}
+- FLAG=ctfhub{gunicorn_web}
 - gunicorn **This is used in Dockerfile(require)**
   - MODULE_NAME=app
   - VARIABLE_NAME=app
@@ -52,7 +52,7 @@ gunicorn --chdir="/app" -w 2 -k gevent -b 0.0.0.0:80 -u nobody -g nogroup --acce
 ### Dockerfile
 
 ```
-FROM ctfhub/base_web_gunicron_python_36
+FROM ctfhub/base_web_gunicorn_python_36
 
 ENV WORK_CLASS=gevent MODULE_NAME=app VARIABLE_NAME=app
 
